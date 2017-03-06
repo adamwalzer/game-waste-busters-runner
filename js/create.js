@@ -4,7 +4,6 @@ import addPlayer from 'shared/phaser/methods/add_player/0.1';
 
 export default function () {
     this.controller = {};
-
     setGameStage.call(this, {
         width: 4000,
         height: 740,

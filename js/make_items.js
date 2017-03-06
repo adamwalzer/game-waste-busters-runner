@@ -16,9 +16,11 @@ export default function () {
 
     var locations = _.defaults(_.reduce(this.opts.platformItemAmounts, (a, v, k) => {
         a[k] = [];
+        delete this[k];
         return a;
     }, {}), _.reduce(this.opts.groundItemAmounts, (a, v, k) => {
         a[k] = [];
+        delete this[k];
         return a;
     }, {}));
 

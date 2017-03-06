@@ -30,7 +30,7 @@ export default function () {
     [this.player, this.logs, this.helpers.inLog],
     ]);
 
-    if (!this.data.levels[this.opts.level].complete) {
+    if (!_.get(this, `data.levels.${this.opts.level}.complete`)) {
         if (this.player.boost) {
             movePlayer.call(this, {
                 upSpeed: this.opts.boostUpSpeed,
@@ -50,7 +50,7 @@ export default function () {
                 jumpSound: this.audio.jump,
             });
         }
-    } else if (this.data.levels[this.opts.level].doorOpen) {
+    } else if (_.get(this, `data.levels.${this.opts.level}.doorOpen`)) {
         this.player.body.velocity.x = 150;
         this.player.body.collideWorldBounds = false;
         this.player.animations.play('right');

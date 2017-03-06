@@ -230,6 +230,8 @@ export default {
     makeLogs,
     makeItems,
     makeDoor() {
+        delete this.doors;
+
         addItems.call(this, {
             group: 'doors'
         }, [{

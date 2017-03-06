@@ -36,6 +36,8 @@ export default function () {
         addPlatform(location, _.random(crops.length - 1));
     });
 
+    delete this.platforms;
+
     addItems.call(this, {
         group: 'platforms',
         defaultOpts: {

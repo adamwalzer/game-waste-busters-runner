@@ -18,6 +18,8 @@ export default function () {
         ground: 40
     };
 
+    delete this.logs;
+
     _.each(offsets, (offset, location) => {
         _.each(this[location].children, platform => {
             var index;
