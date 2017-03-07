@@ -8,9 +8,9 @@ export default function () {
     ];
 
     const bodies = [
-        [200, 28, 0, 80],
-        [310, 28, 0, 80],
-        [605, 28, 0, 80],
+        [200, 28, 0, 40],
+        [310, 28, 0, 40],
+        [605, 28, 0, 40],
     ];
 
     const platformParams = this.opts.setPlatforms || [];
@@ -35,8 +35,6 @@ export default function () {
     _.each(locations, location => {
         addPlatform(location, _.random(crops.length - 1));
     });
-
-    delete this.platforms;
 
     addItems.call(this, {
         group: 'platforms',

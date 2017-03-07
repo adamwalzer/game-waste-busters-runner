@@ -83,8 +83,7 @@ export default function () {
         ['heart', `${CMWN.MEDIA.EFFECT}LifeHeartCapture.mp3`],
         ['lightening', `${CMWN.MEDIA.EFFECT}LightingCapture.mp3`],
         ['bag', `${CMWN.MEDIA.EFFECT}PickUpTrashBag.mp3`],
-        // the empty sound is not currently used anywhere
-        // ['empty', `${CMWN.MEDIA.EFFECT}MissTrashBag.mp3`],
+        ['miss', `${CMWN.MEDIA.EFFECT}MissTrashBag.mp3`],
         ['rainbowRecycle', `${CMWN.MEDIA.EFFECT}RecycleColors.mp3`],
         ['recycle', `${CMWN.MEDIA.EFFECT}RecycleGreen.mp3`],
     ]);

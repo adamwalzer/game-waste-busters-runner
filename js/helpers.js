@@ -4,6 +4,7 @@ import addItems from 'shared/phaser/methods/add_items/0.1';
 import makeBackground from './make_background';
 import makeGround from './make_ground';
 import makePlatforms from './make_platforms';
+import placeLogs from './place_logs';
 import makeLogs from './make_logs';
 import makeItems from './make_items';
 
@@ -164,7 +165,10 @@ export default {
         this.helpers.emitData.call(this);
     },
     collectBags(player, bag) {
-        if (this.data.bagCount === this.opts.maxBags) return;
+        if (this.data.bagCount === this.opts.maxBags) {
+            this.audio.miss.play();
+            return;
+        }
         // Removes the bag from the screen
         bag.kill();
         this.audio.bag.play();
@@ -227,11 +231,10 @@ export default {
     makeBackground,
     makeGround,
     makePlatforms,
+    placeLogs,
     makeLogs,
     makeItems,
     makeDoor() {
-        delete this.doors;
-
         addItems.call(this, {
             group: 'doors'
         }, [{

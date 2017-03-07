@@ -49,8 +49,6 @@ export default function () {
         image: 'ground',
     };
 
-    delete this.ground;
-
     addItems.call(this, {
         group: 'ground', defaultOpts
     }, groundOpts);
