@@ -31,6 +31,7 @@ export default function () {
                         scale: [.5, .5],
                         alpha: .8,
                         collideWorldBounds: false,
+                        checkCollisionLeft: false,
                         checkCollisionRight: false,
                     }
                 }, [{

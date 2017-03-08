@@ -121,8 +121,8 @@ export default {
             enemy.isTurning = false;
         }, 500);
     },
-    inLog() {
-        if (!this.player.canJump) return;
+    inLog(player, log) {
+        if (log.key !== 'logs' || !this.player.canJump) return;
         this.player.canJump = false;
         scaleItem(this.player, {
             scale: this.opts.playerLogScale,
@@ -164,19 +164,6 @@ export default {
         this.data.lives++;
         this.helpers.emitData.call(this);
     },
-    collectBags(player, bag) {
-        if (this.data.bagCount === this.opts.maxBags) {
-            this.audio.miss.play();
-            return;
-        }
-        // Removes the bag from the screen
-        bag.kill();
-        this.audio.bag.play();
-        //  update the bagCount
-        this.data.bagCount++;
-        this.helpers.updatePlayer.call(this);
-        this.helpers.emitData.call(this);
-    },
     collectLightening(player, lightening) {
         player.boost = (player.boost + 1) || 1;
         lightening.kill();
@@ -187,6 +174,22 @@ export default {
             this.helpers.updatePlayer.call(this);
         }, this.opts.boostTime);
     },
+    collectBags(player, bag) {
+        if (this.data.bagCount === this.opts.maxBags) {
+            this.helpers.missBag.call(this);
+            return;
+        }
+        // Removes the bag from the screen
+        bag.kill();
+        this.audio.bag.play();
+        //  update the bagCount
+        this.data.bagCount++;
+        this.helpers.updatePlayer.call(this);
+        this.helpers.emitData.call(this);
+    },
+    missBag: _.debounce(function () {
+        this.audio.miss.play();
+    }, 1000, {leading: true, trailing: false}),
     updatePlayer() {
         if (this.player.boost) {
             this.player.loadTexture('jet', 3);
