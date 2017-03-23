@@ -24,8 +24,10 @@ export default _.reduce(opts, (a, v, k) => {
             this.helpers.makeBackground.call(this);
         },
         update: function () {
-            this.shouldUpdate = true;
-            this.emitEvent({ ready: true });
+            if (!this.shouldUpdate) {
+                this.shouldUpdate = true;
+                this.emitEvent({ ready: true });
+            }
         },
     }
 });
