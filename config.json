@@ -1,0 +1,9 @@
+{
+    "id": "waste-busters-runner",
+    "media_folder": "waste-busters",
+    "version": 1,
+    "dimensions": {
+        "width": 960,
+        "height": 540
+    }
+}

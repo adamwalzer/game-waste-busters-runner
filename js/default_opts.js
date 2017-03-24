@@ -18,7 +18,7 @@ const crops = [
 const generalDefaultProps = {
     image: 'items',
     gravityY: 12,
-    body: [115, 100, 20, 50],
+    body: [115, 100, 20, 20],
     scale: [.5, .5],
     collideWorldBounds: false,
 };

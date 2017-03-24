@@ -4,7 +4,6 @@ import addPlayer from 'shared/phaser/methods/add_player/0.1';
 
 export default function () {
     this.controller = {};
-
     setGameStage.call(this, {
         width: 4000,
         height: 740,
@@ -29,8 +28,9 @@ export default function () {
         anchor: this.opts.playerAnchor,
     });
 
-    this.helpers.makeLogs.call(this);
+    this.helpers.placeLogs.call(this);
     this.helpers.makeItems.call(this);
+    this.helpers.makeLogs.call(this);
 
     this.data = _.defaults({
         levels: {
